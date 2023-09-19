@@ -1,21 +1,19 @@
-import NavLink from "./NavLink"
+import NavLink from "./NavLink";
 
 const links = [
   {
-    href: '/',
-    text: 'Home'
+    href: "/",
+    text: "Home",
   },
   {
-    href: '/register',
-    text: 'Register'
-  }
-]
+    href: "/register",
+    text: "Register",
+  },
+];
 export default function Navbar() {
   return (
-    <nav className="flex justify-between px-4 md:px-8 py-4 border-b-2 border-black w-full">
-      <span className="font-bold text-xl">
-        Next Blog
-      </span>
+    <nav className="flex w-full justify-between border-b-2 border-black px-4 py-4 md:px-8">
+      <span className="text-xl font-bold">Next Blog</span>
       <ul className="flex space-x-4">
         {links.map((link, index) => (
           <li key={index}>
@@ -24,5 +22,5 @@ export default function Navbar() {
         ))}
       </ul>
     </nav>
-  )
+  );
 }

@@ -7,8 +7,8 @@ interface NavLinkProps {
 
 export default function NavLink({ href, text }: NavLinkProps) {
   return (
-    <Link href={href} className="text-lg hover:bg-black hover:text-white p-2">
+    <Link href={href} className="p-2 text-lg hover:bg-black hover:text-white">
       {text}
     </Link>
-  )
+  );
 }
