@@ -21,13 +21,14 @@ export default function Input({
 }: InputProps) {
   return (
     <input
+      required
       type={type}
       value={value}
       onChange={onChange}
       name={name}
       id={id}
       placeholder={placeholder}
-      className={`w-full border-2 border-black bg-white p-2 py-2 font-light text-black ${
+      className={`w-full border-2 border-black bg-white p-2 py-2 font-light text-black outline-none invalid:border-rose-600 invalid:text-rose-600 focus:border-sky-600 focus:text-sky-600 ${
         big ? "w-[400px] pb-[6rem]" : ""
       }`}
     ></input>

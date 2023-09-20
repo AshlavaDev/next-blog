@@ -68,6 +68,18 @@ export default function Register() {
       .finally(() => {});
   }
 
+  function setValue(element: any) {
+    let value = "";
+
+    if (element.type === "email") {
+      value = state.email;
+    } else if (element.type === "password") {
+      value = state.password;
+    } else {
+      value = state.name;
+    }
+  }
+
   return (
     <div className="flex flex-col items-center justify-center pt-6">
       <h1 className="my-4 text-4xl font-bold">Register</h1>
@@ -88,7 +100,7 @@ export default function Register() {
                 id={element.id}
                 type={element.type}
                 placeholder={element.placeholder}
-                value={state.name}
+                value={setValue(element)}
                 onChange={handleChange}
               />
             </div>
