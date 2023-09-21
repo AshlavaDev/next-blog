@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
 import { SafeUser } from "@/types/type";
 import NavLink from "./NavLink";
 import { signOut } from "next-auth/react";
 
 interface NavProps {
-  currentUser: SafeUser | null
+  currentUser: SafeUser | null;
 }
 
 const links = [
@@ -18,9 +18,9 @@ const links = [
     text: "About",
   },
 ];
-export default function Navbar({currentUser}: NavProps) {
+export default function Navbar({ currentUser }: NavProps) {
   return (
-    <nav className="flex w-full justify-between items-center border-b-2 border-black px-4 py-4 md:px-8">
+    <nav className="flex w-full items-center justify-between border-b-2 border-black px-4 py-4 md:px-8">
       <span className="text-xl font-bold">Next Blog</span>
       <ul className="flex items-center space-x-4">
         {links.map((link, index) => (
@@ -34,18 +34,20 @@ export default function Navbar({currentUser}: NavProps) {
           </li>
         )}
         {currentUser ? (
-        <li>
-          <button onClick={() => signOut()} className="p-2 text-lg hover:bg-black hover:text-white">
-            Sign Out
-          </button>
-        </li>
-      ) : (
-        <li>
-          <NavLink href="/login" text="Sign In" />
-        </li>
-      )}
+          <li>
+            <button
+              onClick={() => signOut()}
+              className="p-2 text-lg hover:bg-black hover:text-white"
+            >
+              Sign Out
+            </button>
+          </li>
+        ) : (
+          <li>
+            <NavLink href="/login" text="Sign In" />
+          </li>
+        )}
       </ul>
-      
     </nav>
   );
 }
