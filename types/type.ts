@@ -8,3 +8,9 @@ export type SafeUser = Omit<
   updatedAt: string;
   emailVerified: string | null;
 };
+
+export type Blog = {
+  name: string;
+  description: string;
+  imageSrc: string;
+}

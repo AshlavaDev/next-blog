@@ -13,6 +13,8 @@ export default async function getBlogs() {
       createdAt: blog.createdAt.toISOString(),
 
     }))
+
+    return safeBlogs;
   } catch (error: any) {
     throw new Error(error);
   }

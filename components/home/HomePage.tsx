@@ -1,23 +1,17 @@
+// A component for the home page when no user is signed in
+
 import Link from "next/link";
 
-import getBlogs from "@/app/actions/getBlogs";
-import getCurrentUser from "@/app/actions/getCurrentUser";
+import { Blog } from "@/types/type";
 import BlogCard from "@/components/blogs/BlogCard";
 
-export default async function Home() {
-  const blogs = await getBlogs();
+interface HomePageProps {
+  blogs: Blog[];
+}
 
-  const currentUser = await getCurrentUser();
-
-  if (!currentUser) {
-    if (blogs.length > 20) {
-      blogs.slice(0, 20);
-    }
-  }
-
+export default function HomePage({ blogs }: HomePageProps) {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      <div className="flex flex-col items-center w-full"> {/* Landing Section*/}
+    <div className="flex flex-col items-center w-full"> {/* Landing Section*/}
         <section className="flex items-center justify-center py-12 md:py-28 bg-hero-image bg-cover bg-no-repeat w-full"> {/* Hero Section*/}
           <div className="flex flex-col items-center gap-10 py-6 px-8 bg-white">
             <h1 className="text-4xl md:text-8xl font-bold">Next Blog 13</h1>
@@ -39,6 +33,5 @@ export default async function Home() {
             
         </section>
       </div>
-    </main>
-  );
+  )
 }
