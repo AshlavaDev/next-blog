@@ -11,6 +11,7 @@ export type SafeUser = Omit<
 
 export type Blog = {
   name: string;
+  userId: string;
   description: string;
   imageSrc: string;
 }
