@@ -7,10 +7,7 @@ interface IParams {
   blogId?: string;
 }
 
-export async function DELETE(
-  req: Request,
-  { params }: { params: IParams }
-) {
+export async function DELETE(req: Request, { params }: { params: IParams }) {
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
@@ -28,15 +25,12 @@ export async function DELETE(
       id: blogId,
       userId: currentUser.id,
     },
-  })
+  });
 
   return NextResponse.json(blog);
 }
 
-export async function PUT(
-  req: Request,
-  { params }: { params: IParams }
-) {
+export async function PUT(req: Request, { params }: { params: IParams }) {
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
@@ -53,10 +47,10 @@ export async function PUT(
 
   const blog = await prisma.blog.update({
     where: {
-      id: blogId
+      id: blogId,
     },
-    data: json
-  })
+    data: json,
+  });
 
   return NextResponse.json(blog);
 }

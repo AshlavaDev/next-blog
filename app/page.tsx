@@ -20,21 +20,20 @@ export default async function Home() {
       ...blog,
       updatedAt: blog.updatedAt.toISOString(),
     }));
-  } 
-  else {
-    blogs = allBlogs.filter((blog) => blog.userId === currentUser.id)
+  } else {
+    blogs = allBlogs
+      .filter((blog) => blog.userId === currentUser.id)
       .map((blog) => ({
         ...blog,
         updatedAt: blog.updatedAt.toISOString(),
-    }))
-  };  
+      }));
+  }
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       {currentUser ? (
         <LoggedInHomePage blogs={blogs} currentUser={currentUser} />
-      ) :
-      (
+      ) : (
         <HomePage blogs={blogs} />
       )}
     </main>

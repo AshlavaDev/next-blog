@@ -4,20 +4,25 @@ import AuthorBlogCard from "../blogs/AuthorBlogCard";
 
 interface LoggedInHomePageProps {
   blogs: SafeBlog[];
-  currentUser: SafeUser | null; 
+  currentUser: SafeUser | null;
 }
 
-export default function LoggedInHomePage({ blogs, currentUser }: LoggedInHomePageProps) {
+export default function LoggedInHomePage({
+  blogs,
+  currentUser,
+}: LoggedInHomePageProps) {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex w-full flex-col">
       <section className="flex flex-col items-center py-12">
-        <h1 className="text-4xl py-6">Welcome, {currentUser?.name}</h1>
-        <div className="flex flex-col gap-4 items-center">
+        <h1 className="py-6 text-4xl">Welcome, {currentUser?.name}</h1>
+        <div className="flex flex-col items-center gap-4">
           <p className="text-lg">Do you want to write a post?</p>
-          <Link href="/create" className="btn-primary">Create Post</Link>
+          <Link href="/create" className="btn-primary">
+            Create Post
+          </Link>
         </div>
       </section>
-      <section className="pt-8 border-t-2 border-black w-full flex flex-col items-center">
+      <section className="flex w-full flex-col items-center border-t-2 border-black pt-8">
         <h2 className="text-2xl font-semibold">Your Posts</h2>
         <div className="flex flex-col gap-4 pt-8">
           {blogs.map((blog, index) => (
@@ -26,5 +31,5 @@ export default function LoggedInHomePage({ blogs, currentUser }: LoggedInHomePag
         </div>
       </section>
     </div>
-  )
+  );
 }

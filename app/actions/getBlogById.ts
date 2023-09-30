@@ -14,7 +14,7 @@ export default async function getBlogById(params: IParams) {
       },
       include: {
         user: true,
-      }
+      },
     });
 
     if (!blog) {
@@ -28,12 +28,10 @@ export default async function getBlogById(params: IParams) {
         ...blog.user,
         createdAt: blog.user.createdAt.toISOString(),
         updatedAt: blog.user.updatedAt.toISOString(),
-        emailVerified:
-          blog.user.emailVerified?.toISOString() || null,
-      }
-    }
+        emailVerified: blog.user.emailVerified?.toISOString() || null,
+      },
+    };
   } catch (error: any) {
     throw new Error(error);
   }
-  
 }

@@ -20,7 +20,7 @@ const initialState: InitialStateProps = {
   title: "",
   imageSrc: "",
   description: "",
-  content: ""
+  content: "",
 };
 
 export default function Create() {

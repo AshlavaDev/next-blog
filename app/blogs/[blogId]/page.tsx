@@ -11,7 +11,7 @@ interface IParams {
   blogId: string;
 }
 
-export default async function Blog({params}: {params: IParams}) {
+export default async function Blog({ params }: { params: IParams }) {
   const data = await getBlogById(params);
   let blogAuthor;
   if (data) {
@@ -20,49 +20,63 @@ export default async function Blog({params}: {params: IParams}) {
 
   const currentUser = await getCurrentUser();
 
+  /**
+   * Renders the author section of a blog post.
+   * @param blogAuthor - The author of the blog post.
+   * @param currentUser - The current user viewing the blog post.
+   * @returns The author section of the blog post.
+   */
   function authorSectionRender(blogAuthor: any, currentUser: any) {
-    if (blogAuthor) {
-      let section;
+    let section;
 
-      if(blogAuthor === null) {
-        section = 
-          <h2 className="text-xl md:text-2xl font-semibold text-center">{"Unknown Author"}</h2>
-      }
-      else if (blogAuthor.id === currentUser?.id) {
-        section =
-          <h2 className="text-xl md:text-2xl font-semibold text-center">{blogAuthor?.name}</h2>
-        
-      } else {
-        section =
-          <Link href="/authors/[authorId]" as={`/authors/${blogAuthor?.id}`} className="text-xl md:text-2xl font-semibold text-center">{blogAuthor?.name}</Link>
-        
-      }
-
-      return section;
+    if (blogAuthor === null) {
+      section = (
+        <h2 className="text-center text-xl font-semibold md:text-2xl">
+          {"Unknown Author"}
+        </h2>
+      );
+    } else if (blogAuthor.id === currentUser?.id) {
+      section = (
+        <h2 className="text-center text-xl font-semibold md:text-2xl">
+          {blogAuthor?.name}
+        </h2>
+      );
+    } else {
+      section = (
+        <Link
+          href="/authors/[authorId]"
+          as={`/authors/${blogAuthor?.id}`}
+          className="text-center text-xl font-semibold md:text-2xl"
+        >
+          {blogAuthor?.name}
+        </Link>
+      );
     }
+
+    return section;
   }
 
   const authorSection = authorSectionRender(blogAuthor, currentUser);
 
   return (
-    <main className="flex min-h-screen flex-col items-center pt-8 gap-6">
+    <main className="flex min-h-screen flex-col items-center gap-6 pt-8">
       {data ? (
-      <>
-        <section className="flex flex-col gap-4 max-w-prose">
-          <Image src={data.imageSrc} alt="" width={200} height={200} />
-          <h1 className="text-2xl md:text-4xl font-bold text-center">{data?.title}</h1>
-          {authorSection}
-        </section>
-        <section className="flex flex-col gap-6 max-w-prose">
-          <p className="md:text-lg">{data?.description}</p>
-          <p className="md:text-lg">{data?.content}</p>
-        </section>
-      </>
+        <>
+          <section className="flex max-w-prose flex-col gap-4">
+            <Image src={data.imageSrc} alt="" width={200} height={200} />
+            <h1 className="text-center text-2xl font-bold md:text-4xl">
+              {data?.title}
+            </h1>
+            {authorSection}
+          </section>
+          <section className="flex max-w-prose flex-col gap-6">
+            <p className="md:text-lg">{data?.description}</p>
+            <p className="md:text-lg">{data?.content}</p>
+          </section>
+        </>
       ) : (
-        <h1 className="text-4xl md:text-6xl font-bold">Blog not found!</h1>
+        <h1 className="text-4xl font-bold md:text-6xl">Blog not found!</h1>
       )}
     </main>
-
-     
   );
 }

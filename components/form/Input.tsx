@@ -29,7 +29,7 @@ export default function Input({
       id={id}
       placeholder={placeholder}
       style={{ overflowWrap: "break-word" }}
-      className={`w-full md:max-w-prose border-2 border-black bg-white p-2 py-2 font-light text-black outline-none invalid:border-rose-600 invalid:text-rose-600 focus:border-sky-600 focus:text-sky-600 ${
+      className={`w-full border-2 border-black bg-white p-2 py-2 font-light text-black outline-none invalid:border-rose-600 invalid:text-rose-600 focus:border-sky-600 focus:text-sky-600 md:max-w-prose ${
         big ? "w-[400px] pb-[6rem]" : ""
       }`}
     ></input>

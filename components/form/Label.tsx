@@ -4,7 +4,11 @@ interface LabelProps {
   optionalClasses?: string;
 }
 
-export default function Label({ inputName, labelText, optionalClasses }: LabelProps) {
+export default function Label({
+  inputName,
+  labelText,
+  optionalClasses,
+}: LabelProps) {
   const labelStyles = `font-semibold text-black md:text-lg ${optionalClasses}`;
 
   return (
