@@ -1,9 +1,9 @@
-import { Blog, SafeUser } from "@/types/type";
+import { SafeBlog, SafeUser } from "@/types/type";
 import Link from "next/link";
 import AuthorBlogCard from "../blogs/AuthorBlogCard";
 
 interface LoggedInHomePageProps {
-  blogs: Blog[];
+  blogs: SafeBlog[];
   currentUser: SafeUser | null; 
 }
 
@@ -21,7 +21,7 @@ export default function LoggedInHomePage({ blogs, currentUser }: LoggedInHomePag
         <h2 className="text-2xl font-semibold">Your Posts</h2>
         <div className="flex flex-col gap-4 pt-8">
           {blogs.map((blog, index) => (
-            <AuthorBlogCard key={index} title={blog.name} content={blog.description} imageSrc={blog.imageSrc} />
+            <AuthorBlogCard key={index} data={blog} />
           ))}
         </div>
       </section>

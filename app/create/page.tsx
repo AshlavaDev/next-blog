@@ -10,15 +10,17 @@ import Input from "@/components/form/Input";
 import ImageUpload from "@/components/form/ImageUpload";
 
 interface InitialStateProps {
-  name?: string;
+  title?: string;
   imageSrc: string;
   description: string;
+  content: string;
 }
 
 const initialState: InitialStateProps = {
-  name: "",
+  title: "",
   imageSrc: "",
   description: "",
+  content: ""
 };
 
 export default function Create() {
@@ -33,6 +35,7 @@ export default function Create() {
     });
   }
 
+  //TODO: debug why toast does not show
   function onSubmit(event: FormEvent) {
     setLoading(true);
 
@@ -71,25 +74,37 @@ export default function Create() {
           onChange={(value) => setCustomValue("imageSrc", value)}
         />
         <div className="flex flex-col gap-4">
-          <div className="flex flex-col">
-            <Label inputName="name" labelText="Blog Title" />
+          <div className="flex flex-col items-center">
+            <Label inputName="title" labelText="Blog Title" />
             <Input
               placeholder="Blog Title"
-              id="name"
-              name="name"
+              id="title"
+              name="title"
               type="text"
-              value={state.name}
+              value={state.title}
               onChange={handleChange}
             />
           </div>
-          <div className="flex flex-col">
-            <Label inputName="description" labelText="Blog Content" />
+          <div className="flex flex-col items-center">
+            <Label inputName="description" labelText="Short Blog Description" />
             <Input
-              placeholder="Blog Content"
+              placeholder="Short Blog Description"
               id="description"
               name="description"
               type="text"
               value={state.description}
+              onChange={handleChange}
+            />
+          </div>
+          {/* TODO: work out input text wrap issue  */}
+          <div className="flex flex-col items-center">
+            <Label inputName="content" labelText="Blog Content" />
+            <Input
+              placeholder="Blog Content"
+              id="content"
+              name="content"
+              type="text"
+              value={state.content}
               onChange={handleChange}
               big={true}
             />

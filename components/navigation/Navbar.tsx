@@ -36,7 +36,7 @@ export default function Navbar({ currentUser }: NavProps) {
         {currentUser ? (
           <li>
             <button
-              onClick={() => signOut()}
+              onClick={() => signOut({ callbackUrl: "/" })}
               className="p-2 text-lg hover:bg-black hover:text-white"
             >
               Sign Out

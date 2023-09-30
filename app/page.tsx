@@ -4,6 +4,8 @@ import LoggedInHomePage from "@/components/home/LoggedInHomePage";
 import HomePage from "@/components/home/HomePage";
 import { SafeBlog } from "@/types/type";
 
+//TODO: App list of todos: Author select from other users that lists their blogs, ways to look at all blogs when logged in, search functionality, code documentation
+
 export default async function Home() {
   const allBlogs = await getBlogs();
   let blogs: SafeBlog[] = [];
@@ -21,8 +23,7 @@ export default async function Home() {
         ...blog,
         updatedAt: blog.updatedAt.toISOString(),
     }))
-  };
-  
+  };  
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">

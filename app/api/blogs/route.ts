@@ -12,12 +12,13 @@ export async function POST(req: Request) {
 
   const body = await req.json();
 
-  const { name, description, imageSrc } = body;
+  const { title, description, content, imageSrc } = body;
 
   const blog = await prisma.blog.create({
     data: {
-      name,
+      title,
       description,
+      content,
       imageSrc,
       userId: user.id,
     },
