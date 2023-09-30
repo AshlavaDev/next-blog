@@ -81,7 +81,7 @@ export default function Login() {
         <NavLink href="/register" text="Register" />
       </div>
       <form
-        className="flex w-1/2 flex-col space-y-4 px-2 py-4"
+        className="flex w-1/4 flex-col space-y-4 px-2 py-4"
         onSubmit={onSubmit}
       >
         <div className="flex flex-col gap-4">
