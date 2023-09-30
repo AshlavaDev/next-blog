@@ -19,6 +19,10 @@ export async function DELETE(
 
   const { blogId } = params;
 
+  if (!blogId || typeof blogId !== "string") {
+    throw new Error("Invalid blod id");
+  }
+
   const blog = await prisma.blog.delete({
     where: {
       id: blogId,

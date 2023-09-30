@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 
-import { Blog } from "@/types/type";
+import { SafeBlog } from "@/types/type";
 import BlogCard from "@/components/blogs/BlogCard";
 
 interface HomePageProps {
-  blogs: Blog[];
+  blogs: SafeBlog[];
 }
 
 export default function HomePage({ blogs }: HomePageProps) {
@@ -27,7 +27,7 @@ export default function HomePage({ blogs }: HomePageProps) {
           
         <div className="flex flex-col gap-4 pt-8">
           {blogs.map((blog, index) => (
-            <BlogCard key={index} title={blog.name} authorId={blog.userId} content={blog.description} imageSrc={blog.imageSrc} />
+            <BlogCard key={index} data={blog} />
           ))}
         </div>
             

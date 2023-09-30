@@ -16,6 +16,10 @@ export default async function Home() {
     if (allBlogs.length > 20) {
       allBlogs.slice(0, 20);
     }
+    blogs = allBlogs.map((blog) => ({
+      ...blog,
+      updatedAt: blog.updatedAt.toISOString(),
+    }));
   } 
   else {
     blogs = allBlogs.filter((blog) => blog.userId === currentUser.id)
@@ -31,7 +35,7 @@ export default async function Home() {
         <LoggedInHomePage blogs={blogs} currentUser={currentUser} />
       ) :
       (
-        <HomePage blogs={allBlogs} />
+        <HomePage blogs={blogs} />
       )}
     </main>
   );
