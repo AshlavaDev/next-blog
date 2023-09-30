@@ -9,14 +9,12 @@ import prisma from "@/app/lib/prismadb";
 
 export default async function findAuthor(authorId: string) {
   try {
-    console.log(authorId);
     const author = await prisma.user.findUnique({
       where : {
         id: authorId
       }
     })
 
-    console.log(author);
     return author;
   } catch (error: any) {
     throw new Error(error);
