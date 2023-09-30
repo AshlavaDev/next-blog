@@ -7,6 +7,8 @@ interface BlogCardProps {
   data: SafeBlog
 }
 
+//TODO: Make uniform size
+
 export default async function BlogCard({ data }: BlogCardProps) {
   const author = await findAuthor(data.userId);
 

@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import Footer from "@/components/Footer";
+import { ToastProvider } from "@/providers/toast-provider";
 
 export const metadata: Metadata = {
   title: "Next Blog",
@@ -19,6 +20,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen">
+        <ToastProvider />
         <Navbar currentUser={currentUser} />
         {children}
         <Footer />

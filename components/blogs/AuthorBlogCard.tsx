@@ -12,6 +12,8 @@ interface AuthorBlogCardProps {
   data: SafeBlog
 }
 
+//TODO: Make uniform size
+
 export default function AuthorBlogCard({ data }: AuthorBlogCardProps) {
   const router = useRouter();
 

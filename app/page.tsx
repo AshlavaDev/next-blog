@@ -4,7 +4,7 @@ import LoggedInHomePage from "@/components/home/LoggedInHomePage";
 import HomePage from "@/components/home/HomePage";
 import { SafeBlog } from "@/types/type";
 
-//TODO: App list of todos: Author select from other users that lists their blogs, ways to look at all blogs when logged in, search functionality, code documentation
+//TODO: App list of todos: Author select from other users that lists their blogs, ways to look at all blogs when logged in, search functionality, code documentation, mobile style
 
 export default async function Home() {
   const allBlogs = await getBlogs();

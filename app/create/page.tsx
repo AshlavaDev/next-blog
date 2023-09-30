@@ -35,7 +35,6 @@ export default function Create() {
     });
   }
 
-  //TODO: debug why toast does not show
   function onSubmit(event: FormEvent) {
     setLoading(true);
 
