@@ -9,7 +9,7 @@ interface BlogCardProps {
 }
 
 export default async function BlogCard({ title, authorId, content, imageSrc }: BlogCardProps) {
-  const author = await findAuthor(authorId)
+  const author = await findAuthor(authorId);
 
   return (
     <div className="flex items-center max-w-prose gap-4 h-30">
