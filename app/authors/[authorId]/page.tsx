@@ -19,10 +19,10 @@ export default async function Author({ params }: { params: IParams }) {
     const blogs = await getBlogsByAuthor(params);
     if (blogs !== null) {
       authorBlogs = blogs.map((blog) => ({
-        ...blog,        
+        ...blog,
         createdAt: blog.createdAt.toISOString(),
-        updatedAt: blog.updatedAt.toISOString()
-      }))
+        updatedAt: blog.updatedAt.toISOString(),
+      }));
     }
   }
 
@@ -30,23 +30,20 @@ export default async function Author({ params }: { params: IParams }) {
     let blogList;
 
     if (authorBlogs?.length === 0) {
-      blogList = 
+      blogList = (
         <h2 className="text-center text-xl font-semibold md:text-2xl">
           No Blogs Found
         </h2>
+      );
     } else {
       if (currentUser?.id === authorData?.id) {
-        blogList = (
-          authorBlogs?.map((blog: any, index) => (
-            <AuthorBlogCard key={index} data={blog} />
-          ))
-        )
+        blogList = authorBlogs?.map((blog: any, index) => (
+          <AuthorBlogCard key={index} data={blog} />
+        ));
       } else {
-        blogList = (
-          authorBlogs?.map((blog: any, index) => (
-            <BlogCard key={index} data={blog} />
-          ))
-        )
+        blogList = authorBlogs?.map((blog: any, index) => (
+          <BlogCard key={index} data={blog} />
+        ));
       }
     }
 
@@ -57,7 +54,7 @@ export default async function Author({ params }: { params: IParams }) {
 
   return (
     <main className="flex min-h-screen flex-col items-center pt-10">
-      <h1 className="text-2xl md:text-4xl font-bold">{authorData?.name}</h1>
+      <h1 className="text-2xl font-bold md:text-4xl">{authorData?.name}</h1>
       {blogList}
     </main>
   );

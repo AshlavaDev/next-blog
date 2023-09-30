@@ -15,7 +15,7 @@ export default async function getBlogsByAuthor(params: IParams) {
       orderBy: {
         createdAt: "desc",
       },
-    })
+    });
 
     if (!blogs) {
       return null;
@@ -28,9 +28,8 @@ export default async function getBlogsByAuthor(params: IParams) {
         ...blog,
         createdAt: blog.createdAt.toISOString(),
         updatedAt: blog.updatedAt.toISOString(),
-      }
-    }))
-    
+      },
+    }));
   } catch (error: any) {
     throw new Error(error);
   }
