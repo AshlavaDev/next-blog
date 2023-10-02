@@ -6,12 +6,17 @@ import Link from "next/link";
 import findAuthor from "@/app/actions/findAuthor";
 import getBlogById from "@/app/actions/getBlogById";
 import getCurrentUser from "@/app/actions/getCurrentUser";
+import { SafeBlog } from "@/types/type";
 
 interface IParams {
   blogId: string;
 }
 
-export default async function Blog({ params }: { params: IParams }) {
+interface BlogProps {
+  isEditing: boolean;
+}
+
+export default async function Blog({ params }: { params: IParams }, {isEditing}: BlogProps) {
   const data = await getBlogById(params);
   let blogAuthor;
   if (data) {
@@ -37,9 +42,15 @@ export default async function Blog({ params }: { params: IParams }) {
       );
     } else if (blogAuthor.id === currentUser?.id) {
       section = (
-        <h2 className="text-center text-xl font-semibold md:text-2xl">
-          {blogAuthor?.name}
-        </h2>
+        <div className="flex flex-col items-center gap-4">
+          <h2 className="text-center text-xl font-semibold md:text-2xl">
+            {blogAuthor?.name}
+          </h2>
+          <div className="flex gap-4">
+            <button className="btn-secondary">Delete</button>
+            <button className="btn-primary">Edit</button>
+          </div>
+        </div>
       );
     } else {
       section = (
@@ -62,18 +73,18 @@ export default async function Blog({ params }: { params: IParams }) {
     <main className="flex min-h-screen flex-col items-center gap-6 pt-8">
       {data ? (
         <>
-          <section className="flex max-w-prose flex-col gap-4">
-            <Image src={data.imageSrc} alt="" width={200} height={200} />
-            <h1 className="text-center text-2xl font-bold md:text-4xl">
-              {data?.title}
-            </h1>
-            {authorSection}
-          </section>
-          <section className="flex max-w-prose flex-col gap-6">
-            <p className="md:text-lg">{data?.description}</p>
-            <p className="md:text-lg">{data?.content}</p>
-          </section>
-        </>
+        <section className="flex max-w-prose flex-col gap-4">
+          <Image src={data.imageSrc} alt="" width={200} height={200} />
+          <h1 className="text-center text-2xl font-bold md:text-4xl">
+            {data?.title}
+          </h1>
+          {authorSection}
+        </section>
+        <section className="flex max-w-prose flex-col gap-6">
+          <p className="md:text-lg">{data?.description}</p>
+          <p className="md:text-lg">{data?.content}</p>
+        </section>
+      </>
       ) : (
         <h1 className="text-4xl font-bold md:text-6xl">Blog not found!</h1>
       )}
