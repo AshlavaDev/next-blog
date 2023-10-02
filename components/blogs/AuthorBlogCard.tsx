@@ -18,22 +18,25 @@ interface AuthorBlogCardProps {
 }
 
 interface InitalStateProps {
-  name:string,
-  description:string
-  content: string
-  imageSrc:string
-}   
+  name: string;
+  description: string;
+  content: string;
+  imageSrc: string;
+}
 
 const initialState: InitalStateProps = {
   name: "",
   description: "",
   content: "",
   imageSrc: "",
-}
+};
 
 //TODO: Make uniform size
 
-export default function AuthorBlogCard({ data }: AuthorBlogCardProps, {name, description, content, imageSrc}: InitalStateProps) {
+export default function AuthorBlogCard(
+  { data }: AuthorBlogCardProps,
+  { name, description, content, imageSrc }: InitalStateProps,
+) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const router = useRouter();
 
@@ -51,9 +54,7 @@ export default function AuthorBlogCard({ data }: AuthorBlogCardProps, {name, des
       .finally(() => {});
   };
 
-  const onSubmit = (event: FormEvent) => {
-    
-  }
+  const onSubmit = (event: FormEvent) => {};
 
   return (
     <div className="flex flex-col gap-2">
@@ -68,16 +69,19 @@ export default function AuthorBlogCard({ data }: AuthorBlogCardProps, {name, des
         </div>
       </Link>
       <div className="flex justify-end gap-2">
-        <button className="btn-secondary" onClick={() => setShowDeleteModal(true)}>
+        <button
+          className="btn-secondary"
+          onClick={() => setShowDeleteModal(true)}
+        >
           Delete
         </button>
         <button className="btn-primary">Edit</button>
       </div>
       {showDeleteModal && (
         <DeleteModal
-            onDelete={onDelete}
-            onCancel={() => setShowDeleteModal(false)}
-          />
+          onDelete={onDelete}
+          onCancel={() => setShowDeleteModal(false)}
+        />
       )}
     </div>
   );

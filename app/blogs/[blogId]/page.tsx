@@ -8,17 +8,13 @@ interface IParams {
   blogId: string;
 }
 
-
-export default async function Blog(
-  { params }: { params: IParams }
-) {
-
+export default async function Blog({ params }: { params: IParams }) {
   function convertData(data: any | null) {
     return {
       ...data,
       createAt: data?.createdAt.toString(),
       updatedAt: data?.updatedAt.toString(),
-    }
+    };
   }
 
   const data = convertData(await getBlogById(params));
@@ -31,7 +27,11 @@ export default async function Blog(
 
   return (
     <>
-      <BlogPage blogData={data} blogAuthor={blogAuthor} currentUser={currentUser} />
+      <BlogPage
+        blogData={data}
+        blogAuthor={blogAuthor}
+        currentUser={currentUser}
+      />
     </>
-  )
+  );
 }

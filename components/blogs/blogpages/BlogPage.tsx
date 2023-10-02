@@ -1,12 +1,12 @@
 // A separate component for the blog page so it can be use client without breaking prisma
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
+import { useState } from "react";
+import Image from "next/image";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import Link from "next/link"
+import Link from "next/link";
 
 import { SafeBlog, SafeUser } from "@/types/type";
 import DeleteModal from "@/components/modals/DeleteModal";
@@ -17,11 +17,14 @@ interface BlogPageProps {
   currentUser: SafeUser | null;
 }
 
-
-export default function BlogPage({ blogData, blogAuthor, currentUser }: BlogPageProps) {
+export default function BlogPage({
+  blogData,
+  blogAuthor,
+  currentUser,
+}: BlogPageProps) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const router = useRouter();
-  
+
   const onDelete = () => {
     if (blogData) {
       axios
@@ -38,7 +41,7 @@ export default function BlogPage({ blogData, blogAuthor, currentUser }: BlogPage
     }
   };
 
-   /**
+  /**
    * Renders the author section of a blog post.
    * @param blogAuthor - The author of the blog post.
    * @param currentUser - The current user viewing the blog post.
@@ -61,14 +64,19 @@ export default function BlogPage({ blogData, blogAuthor, currentUser }: BlogPage
           </h2>
           <div className="flex gap-4">
             {/* TODO: Add delete and edit functionality */}
-            <button className="btn-secondary" onClick={() => setShowDeleteModal(true)}>Delete</button>
+            <button
+              className="btn-secondary"
+              onClick={() => setShowDeleteModal(true)}
+            >
+              Delete
+            </button>
             <button className="btn-primary">Edit</button>
           </div>
           {showDeleteModal && (
             <DeleteModal
-                onDelete={onDelete}
-                onCancel={() => setShowDeleteModal(false)}
-              />
+              onDelete={onDelete}
+              onCancel={() => setShowDeleteModal(false)}
+            />
           )}
         </div>
       );
