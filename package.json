@@ -18,6 +18,7 @@
     "autoprefixer": "10.4.15",
     "axios": "^1.5.0",
     "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "cloudinary": "^1.40.0",
     "eslint": "8.49.0",
     "eslint-config-next": "13.5.1",
@@ -35,6 +36,7 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
+    "@types/bcryptjs": "^2.4.4",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.4"
   }

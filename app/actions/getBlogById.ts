@@ -21,9 +21,10 @@ export default async function getBlogById(params: IParams) {
       return null;
     }
 
-    return {
+    const safeBlog = {
       ...blog,
       createAt: blog.createdAt.toISOString(),
+      updatedAt: blog.updatedAt.toISOString(),
       user: {
         ...blog.user,
         createdAt: blog.user.createdAt.toISOString(),
@@ -31,6 +32,8 @@ export default async function getBlogById(params: IParams) {
         emailVerified: blog.user.emailVerified?.toISOString() || null,
       },
     };
+
+    return safeBlog;
   } catch (error: any) {
     throw new Error(error);
   }

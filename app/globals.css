@@ -10,4 +10,8 @@
   .btn-secondary {
     @apply border-2 border-black bg-white p-2 text-black hover:bg-black hover:text-white;
   }
+
+  .btn-danger {
+    @apply border-2 border-red-800 bg-red-800 p-2 text-white hover:bg-white hover:text-red-800;
+  }
 }
