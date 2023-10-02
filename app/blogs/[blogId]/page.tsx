@@ -47,6 +47,7 @@ export default async function Blog({ params }: { params: IParams }, {isEditing}:
             {blogAuthor?.name}
           </h2>
           <div className="flex gap-4">
+            {/* TODO: Add delete and edit functionality */}
             <button className="btn-secondary">Delete</button>
             <button className="btn-primary">Edit</button>
           </div>
