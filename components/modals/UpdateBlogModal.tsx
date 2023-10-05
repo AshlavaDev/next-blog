@@ -41,8 +41,6 @@ export default function UpdateBlogModal({ onClose, blogData }: IProps) {
       content,
     };
 
-    console.log(typeof updatedBlogData);
-
     if (blogData) {
       axios
         .put(`/api/blogs/${blogData.id}`, updatedBlogData)

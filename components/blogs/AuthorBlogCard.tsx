@@ -6,38 +6,24 @@ import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { FormEvent } from "react";
 import toast from "react-hot-toast";
 import { useState } from "react";
 
 import { SafeBlog } from "@/types/type";
 import DeleteModal from "@/components/modals/DeleteModal";
+import UpdateBlogModal from "@/components/modals/UpdateBlogModal";
 
 interface AuthorBlogCardProps {
   data: SafeBlog;
 }
 
-interface InitalStateProps {
-  name: string;
-  description: string;
-  content: string;
-  imageSrc: string;
-}
-
-const initialState: InitalStateProps = {
-  name: "",
-  description: "",
-  content: "",
-  imageSrc: "",
-};
-
 //TODO: Make uniform size
 
 export default function AuthorBlogCard(
-  { data }: AuthorBlogCardProps,
-  { name, description, content, imageSrc }: InitalStateProps,
+  { data }: AuthorBlogCardProps
 ) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
   const router = useRouter();
 
   const onDelete = () => {
@@ -53,8 +39,6 @@ export default function AuthorBlogCard(
       })
       .finally(() => {});
   };
-
-  const onSubmit = (event: FormEvent) => {};
 
   return (
     <div className="flex flex-col gap-2">
@@ -75,7 +59,7 @@ export default function AuthorBlogCard(
         >
           Delete
         </button>
-        <button className="btn-primary">Edit</button>
+        <button className="btn-primary" onClick={() => setShowUpdateModal(true)}>Edit</button>
       </div>
       {showDeleteModal && (
         <DeleteModal
@@ -83,6 +67,12 @@ export default function AuthorBlogCard(
           onCancel={() => setShowDeleteModal(false)}
         />
       )}
+      {showUpdateModal && (
+            <UpdateBlogModal
+              blogData={data}
+              onClose={() => setShowUpdateModal(false)}
+            />
+          )}
     </div>
   );
 }

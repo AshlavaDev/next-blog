@@ -65,7 +65,6 @@ export default function BlogPage({
             {blogAuthor?.name}
           </h2>
           <div className="flex gap-4">
-            {/* TODO: Add delete and edit functionality */}
             <button
               className="btn-secondary"
               onClick={() => setShowDeleteModal(true)}
