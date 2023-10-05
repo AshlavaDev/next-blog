@@ -40,7 +40,7 @@ export async function PUT(req: Request, { params }: { params: IParams }) {
   const { blogId } = params;
 
   if (!blogId || typeof blogId !== "string") {
-    throw new Error("Invalid blod id");
+    throw new Error("Invalid blog id");
   }
 
   const json = await req.json();

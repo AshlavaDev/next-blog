@@ -10,6 +10,7 @@ import Link from "next/link";
 
 import { SafeBlog, SafeUser } from "@/types/type";
 import DeleteModal from "@/components/modals/DeleteModal";
+import UpdateBlogModal from "@/components/modals/UpdateBlogModal";
 
 interface BlogPageProps {
   blogData: SafeBlog | null;
@@ -23,6 +24,7 @@ export default function BlogPage({
   currentUser,
 }: BlogPageProps) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showUpdateModal, setShowUpdateModal] = useState(false);
   const router = useRouter();
 
   const onDelete = () => {
@@ -35,9 +37,9 @@ export default function BlogPage({
           router.push("/");
         })
         .catch((error) => {
-          throw new Error(error);
-        })
-        .finally(() => {});
+          console.log(error);
+          toast.error("Error deleting blog");
+        });
     }
   };
 
@@ -70,12 +72,23 @@ export default function BlogPage({
             >
               Delete
             </button>
-            <button className="btn-primary">Edit</button>
+            <button
+              className="btn-primary"
+              onClick={() => setShowUpdateModal(true)}
+            >
+              Edit
+            </button>
           </div>
           {showDeleteModal && (
             <DeleteModal
               onDelete={onDelete}
               onCancel={() => setShowDeleteModal(false)}
+            />
+          )}
+          {showUpdateModal && (
+            <UpdateBlogModal
+              blogData={blogData}
+              onClose={() => setShowUpdateModal(false)}
             />
           )}
         </div>

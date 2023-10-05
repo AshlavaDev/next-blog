@@ -11,6 +11,7 @@ export default function LoggedInHomePage({
   blogs,
   currentUser,
 }: LoggedInHomePageProps) {
+  console.log(typeof blogs[0]);
   return (
     <div className="flex w-full flex-col">
       <section className="flex flex-col items-center py-12">
