@@ -19,9 +19,7 @@ interface AuthorBlogCardProps {
 
 //TODO: Make uniform size
 
-export default function AuthorBlogCard(
-  { data }: AuthorBlogCardProps
-) {
+export default function AuthorBlogCard({ data }: AuthorBlogCardProps) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const router = useRouter();
@@ -59,7 +57,12 @@ export default function AuthorBlogCard(
         >
           Delete
         </button>
-        <button className="btn-primary" onClick={() => setShowUpdateModal(true)}>Edit</button>
+        <button
+          className="btn-primary"
+          onClick={() => setShowUpdateModal(true)}
+        >
+          Edit
+        </button>
       </div>
       {showDeleteModal && (
         <DeleteModal
@@ -68,11 +71,11 @@ export default function AuthorBlogCard(
         />
       )}
       {showUpdateModal && (
-            <UpdateBlogModal
-              blogData={data}
-              onClose={() => setShowUpdateModal(false)}
-            />
-          )}
+        <UpdateBlogModal
+          blogData={data}
+          onClose={() => setShowUpdateModal(false)}
+        />
+      )}
     </div>
   );
 }

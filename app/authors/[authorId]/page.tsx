@@ -54,8 +54,12 @@ export default async function Author({ params }: { params: IParams }) {
 
   return (
     <main className="flex min-h-screen flex-col items-center pt-10">
-      <h1 className="text-2xl font-bold md:text-4xl">{authorData?.name}</h1>
-      {blogList}
+      <h1 className="py-6 text-2xl font-bold md:text-4xl">
+        {authorData?.name}
+      </h1>
+      <div className="flex w-full flex-col items-center gap-4 py-4">
+        {blogList}
+      </div>
     </main>
   );
 }
