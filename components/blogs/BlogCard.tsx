@@ -14,12 +14,14 @@ export default async function BlogCard({ data }: BlogCardProps) {
   const author = await findAuthor(data.userId);
 
   return (
-    <div className="w-5/6 md:w-2/5 h-96 md:h-64 lg:h-96 border-2 border-black flex flex-col items-center justify-center px-2 gap-2">
-      <div className="flex flex-col items-center md:grid md:grid-cols-3 gap-4">
-        <div className="w-1/2 md:w-full aspect-h-1 flex items-center justify-center">
+    <div className="flex h-96 w-5/6 flex-col items-center justify-center gap-2 border-2 border-black px-2 md:h-64 md:w-2/5 lg:h-96">
+      <div className="flex flex-col items-center gap-4 md:grid md:grid-cols-3">
+        <div className="aspect-h-1 flex w-1/2 items-center justify-center md:w-full">
           {data.imageSrc === "" ? (
-            <div className="w-full h-full flex items-center justify-center aspect-w-1 aspect-h-1">
-              <div className="text-lg flex items-center justify-center">No Image</div>
+            <div className="aspect-h-1 aspect-w-1 flex h-full w-full items-center justify-center">
+              <div className="flex items-center justify-center text-lg">
+                No Image
+              </div>
             </div>
           ) : (
             <Image
@@ -27,11 +29,11 @@ export default async function BlogCard({ data }: BlogCardProps) {
               alt=""
               width={300}
               height={300}
-              className="w-full h-full"
+              className="h-full w-full"
             />
           )}
         </div>
-        <div className="flex flex-col grow md:col-span-2 md:max-w-prose">
+        <div className="flex grow flex-col md:col-span-2 md:max-w-prose">
           <h1 className="text-2xl font-bold">{data.title}</h1>
           <Link
             href={"authors/" + author?.id}
@@ -43,8 +45,8 @@ export default async function BlogCard({ data }: BlogCardProps) {
         </div>
       </div>
       <Link href={"/blogs/" + data.id} className="btn-primary">
-          Read More
-        </Link>
+        Read More
+      </Link>
     </div>
   );
 }
