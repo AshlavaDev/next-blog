@@ -113,7 +113,7 @@ export default function BlogPage({
     <main className="flex min-h-screen flex-col items-center gap-6 pt-8">
       {blogData ? (
         <>
-          <section className="flex max-w-prose flex-col gap-4">
+          <section className="flex max-w-prose flex-col items-center gap-4">
             <Image src={blogData.imageSrc} alt="" width={200} height={200} />
             <h1 className="text-center text-2xl font-bold md:text-4xl">
               {blogData?.title}

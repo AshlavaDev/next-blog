@@ -85,7 +85,7 @@ export default function Create() {
             />
           </div>
           <div className="flex flex-col items-center">
-            <Label inputName="description" labelText="Short Blog Description" />
+            <Label inputName="description" labelText="Short Blog Description (max 80 characters)" />
             <Input
               placeholder="Short Blog Description"
               id="description"
@@ -105,7 +105,6 @@ export default function Create() {
               type="text"
               value={state.content}
               onChange={handleChange}
-              big={true}
             />
           </div>
           <button type="submit" className="btn-primary self-end">

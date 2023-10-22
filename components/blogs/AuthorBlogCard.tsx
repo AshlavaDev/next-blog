@@ -39,15 +39,15 @@ export default function AuthorBlogCard({ data }: AuthorBlogCardProps) {
   };
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 w-5/6 md:w-1/3">
       <Link
         href={`/blogs/${data.id}`}
-        className="h-30 flex max-w-prose items-center gap-4 border-2 p-2 hover:border-black"
+        className="flex flex-col items-center justify-center md:grid md:grid-cols-3 gap-2 border-2 hover:border-black px-2 py-4 max-h-96 md:max-h-64 w-full"
       >
-        <Image src={data.imageSrc} alt="" width={100} height={100} />
-        <div className="flex flex-col gap-2">
+        <Image src={data.imageSrc} alt="" width={300} height={300} />
+        <div className="flex grow flex-col md:col-span-2 md:max-w-prose">
           <h1 className="text-2xl font-bold md:text-4xl">{data.title}</h1>
-          <p className="text-lg">{data.description}</p>
+          <p className="text-lg">{data.description.length > 100 ? data.description.slice(0, 100) + '...' : data.description}</p>
         </div>
       </Link>
       <div className="flex justify-end gap-2">

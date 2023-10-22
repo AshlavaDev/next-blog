@@ -20,12 +20,12 @@ export default async function About() {
   }));
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-4">
+    <main className="flex min-h-screen w-full flex-col items-center p-4">
       <h1 className="text-5xl font-bold text-center">Most Recent Posts</h1>
-      <section className="pt-8">
+      <section className="pt-8 w-full">
         <h2 className="text-center text-2xl">Recent Posts</h2>
 
-        <div className="flex flex-col items-center gap-4 py-8">
+        <div className="flex flex-col items-center gap-4 py-8 w-full">
           {blogs.map((blog, index) => (
             <BlogCard key={index} data={blog} />
           ))}
