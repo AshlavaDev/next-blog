@@ -2,19 +2,13 @@
 
 import Link from "next/link";
 
-import { SafeBlog } from "@/types/type";
-import BlogCard from "@/components/blogs/BlogCard";
 
-interface HomePageProps {
-  blogs: SafeBlog[];
-}
-
-export default function HomePage({ blogs }: HomePageProps) {
+export default function HomePage() {
   return (
-    <div className="flex w-full flex-col items-center">
+    <main className="flex w-full flex-col items-center">
       {" "}
       {/* Landing Section*/}
-      <section className="flex w-full items-center justify-center bg-hero-image bg-cover bg-no-repeat py-12 md:py-28">
+      <section className="flex w-full items-center justify-center bg-hero-image bg-cover bg-no-repeat py-12 md:py-28 px-2">
         {" "}
         {/* Hero Section*/}
         <div className="flex flex-col items-center gap-10 bg-white px-8 py-6">
@@ -33,15 +27,6 @@ export default function HomePage({ blogs }: HomePageProps) {
           </div>
         </div>
       </section>
-      <section className="pt-8">
-        <h2 className="text-center text-2xl">Recent Posts</h2>
-
-        <div className="flex flex-col gap-4 pt-8">
-          {blogs.map((blog, index) => (
-            <BlogCard key={index} data={blog} />
-          ))}
-        </div>
-      </section>
-    </div>
+    </main>
   );
 }

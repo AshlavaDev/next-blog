@@ -12,15 +12,7 @@ export default async function Home() {
 
   const currentUser = await getCurrentUser();
 
-  if (!currentUser) {
-    if (allBlogs.length > 20) {
-      allBlogs.slice(0, 20);
-    }
-    blogs = allBlogs.map((blog) => ({
-      ...blog,
-      updatedAt: blog.updatedAt.toISOString(),
-    }));
-  } else {
+  if (currentUser) {
     blogs = allBlogs
       .filter((blog) => blog.userId === currentUser.id)
       .map((blog) => ({
@@ -34,7 +26,7 @@ export default async function Home() {
       {currentUser ? (
         <LoggedInHomePage blogs={blogs} currentUser={currentUser} />
       ) : (
-        <HomePage blogs={blogs} />
+        <HomePage />
       )}
     </main>
   );

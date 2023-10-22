@@ -14,10 +14,12 @@ const links = [
     text: "Home",
   },
   {
-    href: "/about",
-    text: "About",
+    href: "/all_blogs",
+    text: "Recent Blogs",
   },
 ];
+
+//TODO: MAKE MOBILE NAV and UPDATE TITLE BASED ON USE LOGIN
 export default function Navbar({ currentUser }: NavProps) {
   return (
     <nav className="flex w-full items-center justify-between border-b-2 border-black px-4 py-4 md:px-8">

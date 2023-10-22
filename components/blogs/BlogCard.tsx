@@ -8,13 +8,13 @@ interface BlogCardProps {
   data: SafeBlog;
 }
 
-//TODO: Make uniform size
+//TODO: Make uniform size, fic desktop
 
 export default async function BlogCard({ data }: BlogCardProps) {
   const author = await findAuthor(data.userId);
 
   return (
-    <div className="flex h-96 w-5/6 flex-col items-center justify-center gap-2 border-2 border-black px-2 md:h-64 md:w-2/5 lg:h-96">
+    <div className="flex h-96 w-5/6 flex-col items-center justify-between gap-2 border-2 border-black px-2 py-4 md:h-64 md:w-2/5 lg:h-96">
       <div className="flex flex-col items-center gap-4 md:grid md:grid-cols-3">
         <div className="aspect-h-1 flex w-1/2 items-center justify-center md:w-full">
           {data.imageSrc === "" ? (
