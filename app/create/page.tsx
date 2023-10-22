@@ -28,7 +28,7 @@ export default function Create() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     setState({
       ...state,
       [e.target.id]: e.target.value,
@@ -63,18 +63,20 @@ export default function Create() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center pt-6">
+    <main className="flex flex-col min-h-screen items-center pt-6 md:pt-16">
       <form
-        className="flex w-1/2 flex-col space-y-4 px-2 py-4"
+        className="flex md:w-1/2 flex-col space-y-4 px-2 py-4 w-full"
         onSubmit={onSubmit}
       >
-        <ImageUpload
-          value={state.imageSrc}
-          onChange={(value) => setCustomValue("imageSrc", value)}
-        />
-        <div className="flex flex-col gap-4">
-          <div className="flex flex-col items-center">
-            <Label inputName="title" labelText="Blog Title" />
+        <div className="border border-black h-32 w-32 flex flex-col self-center">
+          <ImageUpload
+            value={state.imageSrc}
+            onChange={(value) => setCustomValue("imageSrc", value)}
+          />
+        </div>
+        <div className="flex flex-col gap-4 w-full">
+          <div className="flex flex-col w-full">
+            <Label inputName="title" labelText="Blog Title" optionalClasses={"self-center"} />
             <Input
               placeholder="Blog Title"
               id="title"
@@ -84,8 +86,8 @@ export default function Create() {
               onChange={handleChange}
             />
           </div>
-          <div className="flex flex-col items-center">
-            <Label inputName="description" labelText="Short Blog Description (max 80 characters)" />
+          <div className="flex flex-col w-full">
+            <Label inputName="description" labelText="Short Blog Description" optionalClasses={"self-center"} />
             <Input
               placeholder="Short Blog Description"
               id="description"
@@ -95,15 +97,16 @@ export default function Create() {
               onChange={handleChange}
             />
           </div>
-          {/* TODO: work out input text wrap issue  */}
-          <div className="flex flex-col items-center">
-            <Label inputName="content" labelText="Blog Content" />
-            <Input
+          <div className="flex flex-col w-full">
+            <Label inputName="content" labelText="Blog Content" optionalClasses={"self-center"} />
+            <textarea
               placeholder="Blog Content"
+              required
               id="content"
               name="content"
-              type="text"
               value={state.content}
+              className="input"
+              rows={8}
               onChange={handleChange}
             />
           </div>
@@ -112,6 +115,6 @@ export default function Create() {
           </button>
         </div>
       </form>
-    </div>
+    </main>
   );
 }

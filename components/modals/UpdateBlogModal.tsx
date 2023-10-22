@@ -59,12 +59,12 @@ export default function UpdateBlogModal({ onClose, blogData }: IProps) {
 
   return (
     <div
-      className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50"
+      className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50 px-2"
       style={{ zIndex: 9999 }}
     >
       <form
         onSubmit={handleSubmit}
-        className="w-1/2 rounded-lg bg-white p-6 shadow-lg"
+        className="md:w-1/2 w-full rounded-lg bg-white p-6 shadow-lg"
       >
         <h2 className="mb-4 text-lg font-medium">Update Blog</h2>
         <div className="mb-4">
