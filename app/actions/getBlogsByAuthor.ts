@@ -21,7 +21,7 @@ export default async function getBlogsByAuthor(params: IParams) {
       return null;
     }
 
-    return blogs.map((blog) => ({
+    return blogs.map((blog: any) => ({
       ...blog,
       createAt: blog.createdAt.toISOString(),
       user: {
