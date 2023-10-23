@@ -20,16 +20,7 @@ interface NavProps {
   currentUser: SafeUser | null;
 }
 
-const links = [
-  {
-    href: "/",
-    text: "Home",
-  },
-  {
-    href: "/all_blogs",
-    text: "Recent Blogs",
-  },
-];
+//Change logged in home label to Profile
 
 export default function Navbar({ currentUser }: NavProps) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -59,18 +50,17 @@ export default function Navbar({ currentUser }: NavProps) {
         ) : (
           <span className="text-lg font-bold md:text-xl">Next Blogging</span>
         )}
-        <ul className="hidden items-center space-x-4 md:flex">
-          {links.map((link, index) => (
-            <li key={index}>
-              <NavLink href={link.href} text={link.text} />
+        {currentUser ? (
+          <ul className="hidden items-center space-x-4 md:flex">
+            <li>
+              <NavLink href="/" text="Profile" />
             </li>
-          ))}
-          {currentUser && (
             <li>
               <NavLink href="/create" text="Create Post" />
             </li>
-          )}
-          {currentUser ? (
+            <li>
+              <NavLink href="/all_blogs" text="Recent Blogs" />
+            </li>
             <li>
               <button
                 onClick={() => signOut({ callbackUrl: "/" })}
@@ -79,33 +69,35 @@ export default function Navbar({ currentUser }: NavProps) {
                 Sign Out
               </button>
             </li>
-          ) : (
+          </ul>
+        ) : (
+          <ul className="hidden items-center space-x-4 md:flex">
+            <li>
+              <NavLink href="/" text="Home" />
+            </li>
+            <li>
+              <NavLink href="/all_blogs" text="Recent Blogs" />
+            </li>
             <li>
               <NavLink href="/login" text="Sign In" />
             </li>
-          )}
-        </ul>
+          </ul>
+        )}
         <button className="pr-4 text-xl md:hidden" onClick={toggleMenu}>
           <AiOutlineMenu />
         </button>
       </nav>
-      <ul
-        className={`${
-          menuOpen
-            ? "absolute right-0 z-20 flex w-fit flex-col border-b-2 border-l-2 border-black bg-white pr-2"
-            : "hidden"
-        }`}
-      >
-        {links.map((link, index) => (
-          <li key={index} className="flex w-full" onClick={toggleMenu}>
-            <NavLink
-              href={link.href}
-              text={link.text}
-              optionalStyles="w-full"
-            />
+      {currentUser ? (
+        <ul
+          className={`${
+            menuOpen
+              ? "absolute right-0 z-20 flex w-fit flex-col border-b-2 border-l-2 border-black bg-white pr-2"
+              : "hidden"
+          }`}
+        >
+          <li className="flex w-full" onClick={toggleMenu}>
+            <NavLink href="/" text="Profile" optionalStyles="w-full" />
           </li>
-        ))}
-        {currentUser && (
           <li className="flex w-full" onClick={toggleMenu}>
             <NavLink
               href="/create"
@@ -113,8 +105,13 @@ export default function Navbar({ currentUser }: NavProps) {
               optionalStyles="w-full"
             />
           </li>
-        )}
-        {currentUser ? (
+          <li className="flex w-full" onClick={toggleMenu}>
+            <NavLink
+              href="/all_blogs"
+              text="Recent Blogs"
+              optionalStyles="w-full"
+            />
+          </li>
           <li className="flex w-full justify-start">
             <button
               onClick={() => signOut({ callbackUrl: "/" })}
@@ -123,12 +120,31 @@ export default function Navbar({ currentUser }: NavProps) {
               Sign Out
             </button>
           </li>
-        ) : (
+        </ul>
+      ) : (
+        <ul
+          className={`${
+            menuOpen
+              ? "absolute right-0 z-20 flex w-fit flex-col border-b-2 border-l-2 border-black bg-white pr-2"
+              : "hidden"
+          }`}
+        >
+          <li className="flex w-full" onClick={toggleMenu}>
+            <NavLink href="/" text="Home" optionalStyles="w-full" />
+          </li>
+          <li className="flex w-full" onClick={toggleMenu}>
+            <NavLink
+              href="/all_blogs"
+              text="Recent Blogs"
+              optionalStyles="w-full"
+            />
+          </li>
+
           <li className="flex w-full" onClick={toggleMenu}>
             <NavLink href="/login" text="Sign In" optionalStyles="w-full" />
           </li>
-        )}
-      </ul>
+        </ul>
+      )}
     </>
   );
 }

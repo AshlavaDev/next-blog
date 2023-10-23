@@ -14,7 +14,7 @@ export default async function About() {
   if (allBlogs.length > 20) {
     allBlogs.slice(0, 20);
   }
-  blogs = allBlogs.map((blog) => ({
+  blogs = allBlogs.map((blog: any) => ({
     ...blog,
     updatedAt: blog.updatedAt.toString(),
   }));

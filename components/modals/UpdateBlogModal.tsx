@@ -25,7 +25,7 @@ export default function UpdateBlogModal({ onClose, blogData }: IProps) {
     altText: blogData?.altText ?? "",
   });
   const router = useRouter();
-  
+
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ): void {
@@ -69,7 +69,7 @@ export default function UpdateBlogModal({ onClose, blogData }: IProps) {
     >
       <form
         onSubmit={handleSubmit}
-        className="w-full rounded-lg bg-white p-6 shadow-lg md:w-1/2 flex flex-col"
+        className="flex w-full flex-col rounded-lg bg-white p-6 shadow-lg md:w-1/2"
       >
         <h2 className="mb-4 text-lg font-medium">Update Blog</h2>
         <div className="mb-4">

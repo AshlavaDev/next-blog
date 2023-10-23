@@ -12,7 +12,7 @@ export default async function getAllBlogs(): Promise<SafeBlog[]> {
     const safeBlogs = blogs.map((blog: any) => ({
       ...blog,
       createdAt: blog.createdAt.toISOString(),
-      updatedAt: blog.updatedAt.toISOString()
+      updatedAt: blog.updatedAt.toISOString(),
     }));
 
     return safeBlogs;

@@ -22,7 +22,7 @@ export default async function Author({ params }: { params: IParams }) {
   if (authorData) {
     const blogs = await getBlogsByAuthor(params);
     if (blogs !== null) {
-      authorBlogs = blogs.map((blog) => ({
+      authorBlogs = blogs.map((blog: any) => ({
         ...blog,
         createdAt: blog.createdAt.toISOString(),
         updatedAt: blog.updatedAt.toISOString(),
@@ -58,7 +58,7 @@ export default async function Author({ params }: { params: IParams }) {
 
   return (
     <main className="flex min-h-screen flex-col items-center pt-10">
-      <div className="rounded-full h-24 w-24 md:h-48 md:w-48 border-2 border-black">
+      <div className="h-24 w-24 rounded-full border-2 border-black md:h-48 md:w-48">
         {authorData?.imageSrc && (
           <Image
             src={authorData.imageSrc}
@@ -72,7 +72,9 @@ export default async function Author({ params }: { params: IParams }) {
       <h1 className="py-6 text-2xl font-bold md:text-4xl">
         {authorData?.name}
       </h1>
-      <p className="text-lg md:text-xl text-center px-2">{authorData?.userDescription}</p>
+      <p className="px-2 text-center text-lg md:text-xl">
+        {authorData?.userDescription}
+      </p>
       <div className="flex w-full flex-col items-center gap-4 py-4">
         <h3 className="text-xl md:text-2xl">{`${authorData?.name}'s Blogs`}</h3>
         {blogList}
