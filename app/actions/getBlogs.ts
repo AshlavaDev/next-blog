@@ -1,6 +1,7 @@
 import prisma from "@/app/lib/prismadb";
+import { SafeBlog } from "@/types/type";
 
-export default async function getAllBlogs() {
+export default async function getAllBlogs(): Promise<SafeBlog[]> {
   try {
     const blogs = await prisma.blog.findMany({
       orderBy: {
@@ -11,6 +12,7 @@ export default async function getAllBlogs() {
     const safeBlogs = blogs.map((blog) => ({
       ...blog,
       createdAt: blog.createdAt.toISOString(),
+      updatedAt: blog.updatedAt.toISOString()
     }));
 
     return safeBlogs;

@@ -16,7 +16,7 @@ export default async function About() {
   }
   blogs = allBlogs.map((blog) => ({
     ...blog,
-    updatedAt: blog.updatedAt.toISOString(),
+    updatedAt: blog.updatedAt.toString(),
   }));
 
   return (
