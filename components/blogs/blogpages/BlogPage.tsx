@@ -110,7 +110,7 @@ export default function BlogPage({
   const authorSection = authorSectionRender(blogAuthor, currentUser);
 
   return (
-    <main className="flex min-h-screen flex-col items-center gap-6 pt-8">
+    <main className="flex min-h-screen w-full flex-col items-center gap-6 px-2 pt-8">
       {blogData ? (
         <>
           <section className="flex max-w-prose flex-col items-center gap-4">

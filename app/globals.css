@@ -18,4 +18,8 @@
   .input {
     @apply w-full border-2 border-black bg-white p-2 py-2 font-light text-black outline-none invalid:border-rose-600 invalid:text-rose-600 focus:border-sky-600 focus:text-sky-600;
   }
+
+  .nav-link {
+    @apply p-2 text-lg hover:bg-black hover:text-white;
+  }
 }

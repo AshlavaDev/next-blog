@@ -74,19 +74,19 @@ export default function Login() {
   }
 
   return (
-    <main className="flex flex-col min-h-screen items-center pt-6 md:pt-20">
+    <main className="flex min-h-screen flex-col items-center pt-6 md:pt-20">
       <h1 className="my-4 text-4xl font-bold">Login</h1>
       <div className="flex flex-col items-center gap-2">
         <p className="text-center text-xl">Don&apos;t have an account?</p>
         <NavLink href="/register" text="Register" />
       </div>
       <form
-        className="flex md:w-1/4 flex-col space-y-4 px-2 py-4 w-full"
+        className="flex w-full flex-col space-y-4 px-2 py-4 md:w-1/4"
         onSubmit={onSubmit}
       >
-        <div className="flex flex-col gap-4 w-full">
+        <div className="flex w-full flex-col gap-4">
           {formElements.map((element, index) => (
-            <div key={index} className="flex flex-col w-full">
+            <div key={index} className="flex w-full flex-col">
               <Label inputName={element.id} labelText={element.placeholder} />
               <Input
                 name={element.name}

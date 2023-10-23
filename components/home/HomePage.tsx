@@ -2,13 +2,12 @@
 
 import Link from "next/link";
 
-
 export default function HomePage() {
   return (
     <main className="flex w-full flex-col items-center">
       {" "}
       {/* Landing Section*/}
-      <section className="flex w-full items-center justify-center bg-hero-image bg-cover bg-no-repeat py-12 md:py-28 px-2">
+      <section className="flex w-full items-center justify-center bg-hero-image bg-cover bg-no-repeat px-2 py-12 md:py-28">
         {" "}
         {/* Hero Section*/}
         <div className="flex flex-col items-center gap-10 bg-white px-8 py-6">

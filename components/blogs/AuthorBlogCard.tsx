@@ -39,17 +39,27 @@ export default function AuthorBlogCard({ data }: AuthorBlogCardProps) {
   };
 
   return (
-    <div className="flex flex-col gap-2 w-5/6 md:w-1/3">
+    <div className="flex w-5/6 flex-col gap-2 md:w-1/3">
       <Link
         href={`/blogs/${data.id}`}
-        className="flex flex-col items-center justify-center md:grid md:grid-cols-3 gap-2 border-2 hover:border-black px-2 py-4 max-h-96 md:max-h-64 w-full"
+        className="flex max-h-96 w-full flex-col items-center justify-center gap-2 border-2 px-2 py-4 hover:border-black md:grid md:max-h-64 md:grid-cols-3"
       >
         <div className="aspect-h-1 flex w-1/2 items-center justify-center md:w-full">
-          <Image src={data.imageSrc} alt="" width={300} height={300} className="h-full w-full" />
+          <Image
+            src={data.imageSrc}
+            alt=""
+            width={300}
+            height={300}
+            className="h-full w-full"
+          />
         </div>
         <div className="flex grow flex-col md:col-span-2 md:max-w-prose">
           <h1 className="text-2xl font-bold md:text-4xl">{data.title}</h1>
-          <p className="text-lg">{data.description.length > 80 ? data.description.slice(0, 80) + '...' : data.description}</p>
+          <p className="text-lg">
+            {data.description.length > 80
+              ? data.description.slice(0, 80) + "..."
+              : data.description}
+          </p>
         </div>
       </Link>
       <div className="flex justify-end gap-2">

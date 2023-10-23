@@ -64,7 +64,7 @@ export default function UpdateBlogModal({ onClose, blogData }: IProps) {
     >
       <form
         onSubmit={handleSubmit}
-        className="md:w-1/2 w-full rounded-lg bg-white p-6 shadow-lg"
+        className="w-full rounded-lg bg-white p-6 shadow-lg md:w-1/2"
       >
         <h2 className="mb-4 text-lg font-medium">Update Blog</h2>
         <div className="mb-4">
