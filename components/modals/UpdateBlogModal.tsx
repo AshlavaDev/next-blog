@@ -1,4 +1,8 @@
-//TODO: Get text area to accept standard line breaks and formatting
+/*
+  This modal pops up when a user wishes to update one of their blogs.
+  It currently only updates the title, description, and content.
+*/
+
 import { useState, ChangeEvent } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -10,6 +14,8 @@ interface IProps {
   onClose: () => void;
   blogData: SafeBlog | null;
 }
+
+//TODO: Add image upload and alt text updater
 
 export default function UpdateBlogModal({ onClose, blogData }: IProps) {
   const [title, setTitle] = useState(blogData?.title);
@@ -90,7 +96,7 @@ export default function UpdateBlogModal({ onClose, blogData }: IProps) {
             Content
           </label>
           <textarea
-            className="min-h-[240px] w-full rounded-lg border border-gray-400 p-2"
+            className="w-full rounded-lg border border-gray-400 p-2"
             value={content}
             onChange={(e) => handleChange(e, "content")}
           />

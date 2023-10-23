@@ -12,6 +12,7 @@ import ImageUpload from "@/components/form/ImageUpload";
 interface InitialStateProps {
   title?: string;
   imageSrc: string;
+  altText: string;
   description: string;
   content: string;
 }
@@ -19,6 +20,7 @@ interface InitialStateProps {
 const initialState: InitialStateProps = {
   title: "",
   imageSrc: "",
+  altText: "",
   description: "",
   content: "",
 };
@@ -75,6 +77,22 @@ export default function Create() {
             value={state.imageSrc}
             onChange={(value) => setCustomValue("imageSrc", value)}
           />
+        </div>
+        <div className="flex w-full flex-col">
+            <Label
+              inputName="altText"
+              labelText="Image Alt Text"
+              optionalClasses={"self-center"}
+            />
+            <Input
+              placeholder="Image Alt Text"
+              id="altText"
+              name="altText"
+              type="text"
+              value={state.altText}
+              onChange={handleChange}
+            />
+          
         </div>
         <div className="flex w-full flex-col gap-4">
           <div className="flex w-full flex-col">

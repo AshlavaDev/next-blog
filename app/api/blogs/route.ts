@@ -12,7 +12,7 @@ export async function POST(req: Request) {
 
   const body = await req.json();
 
-  const { title, description, content, imageSrc } = body;
+  const { title, description, content, imageSrc, altText } = body;
 
   const blog = await prisma.blog.create({
     data: {
@@ -20,6 +20,7 @@ export async function POST(req: Request) {
       description,
       content,
       imageSrc,
+      altText,
       userId: user.id,
     },
   });
