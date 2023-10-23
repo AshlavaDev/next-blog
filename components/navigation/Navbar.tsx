@@ -31,7 +31,6 @@ const links = [
   },
 ];
 
-//TODO: profile picture for user
 export default function Navbar({ currentUser }: NavProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -46,7 +45,13 @@ export default function Navbar({ currentUser }: NavProps) {
           <span className="flex items-center gap-2 text-lg font-bold md:text-xl">
             <div className="h-12 w-12 rounded-full border border-black">
               {currentUser.imageSrc && (
-                <Image src={currentUser.imageSrc} alt={currentUser.altText ?? ""} width={48} height={48} className="object-cover rounded-full" />
+                <Image
+                  src={currentUser.imageSrc}
+                  alt={currentUser.altText ?? ""}
+                  width={48}
+                  height={48}
+                  className="rounded-full object-cover"
+                />
               )}
             </div>
             {currentUser.name}

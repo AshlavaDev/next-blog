@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 
@@ -24,7 +24,10 @@ export default function LoggedInHomePage({
         <h1 className="py-6 text-center text-4xl">
           Welcome, {currentUser?.name}
         </h1>
-        <button className="btn-secondary" onClick={() => setShowUpdateProfileModal(true)}>
+        <button
+          className="btn-secondary"
+          onClick={() => setShowUpdateProfileModal(true)}
+        >
           Update Profile
         </button>
         <div className="flex flex-col items-center gap-4 pt-6">

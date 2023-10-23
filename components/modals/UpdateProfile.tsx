@@ -2,7 +2,7 @@
   This modal allows a user to update their profile, infomration rendered on their author page with the image also going in their own navbar
 */
 
-import { useState, ChangeEvent, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
@@ -34,16 +34,15 @@ export default function UpdateProfile({ onClose, user }: IProps) {
   const router = useRouter();
 
   useEffect(() => {
-    if(user) {
+    if (user) {
       setState({
         name: user?.name ?? "",
         imageSrc: user?.imageSrc ?? "",
         altText: user?.altText ?? "",
         userDescription: user?.userDescription ?? "",
-      })
+      });
     }
   }, [user]);
-
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -66,24 +65,28 @@ export default function UpdateProfile({ onClose, user }: IProps) {
     event.preventDefault();
 
     axios
-    .put(`/api`, state)
-    .then(() => {
-      toast.success("Blog updated!");
-      router.refresh();
-    })
-    .catch((error) => {
-      console.log(error);
-      toast.error("Error updating blog");
-    });
+      .put(`/api`, state)
+      .then(() => {
+        toast.success("Profile updated!");
+        router.refresh();
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("Error updating profile");
+      });
 
     onClose();
   }
 
   return (
-    <div className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50 px-2"
-    style={{ zIndex: 9999 }}>
-      <form onSubmit={handleSubmit}
-        className="w-full rounded-lg bg-white p-6 shadow-lg md:w-1/2 flex flex-col">
+    <div
+      className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50 px-2"
+      style={{ zIndex: 9999 }}
+    >
+      <form
+        onSubmit={handleSubmit}
+        className="flex w-full flex-col rounded-lg bg-white p-6 shadow-lg md:w-1/2"
+      >
         <h2 className="mb-4 text-lg font-medium">Update Profile</h2>
         <div className="mb-4">
           <label className="mb-2 block font-medium text-gray-700">Name</label>
@@ -134,5 +137,5 @@ export default function UpdateProfile({ onClose, user }: IProps) {
         </div>
       </form>
     </div>
-  )
+  );
 }

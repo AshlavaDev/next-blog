@@ -79,20 +79,19 @@ export default function Create() {
           />
         </div>
         <div className="flex w-full flex-col">
-            <Label
-              inputName="altText"
-              labelText="Image Alt Text"
-              optionalClasses={"self-center"}
-            />
-            <Input
-              placeholder="Image Alt Text"
-              id="altText"
-              name="altText"
-              type="text"
-              value={state.altText}
-              onChange={handleChange}
-            />
-          
+          <Label
+            inputName="altText"
+            labelText="Image Alt Text"
+            optionalClasses={"self-center"}
+          />
+          <Input
+            placeholder="Image Alt Text"
+            id="altText"
+            name="altText"
+            type="text"
+            value={state.altText}
+            onChange={handleChange}
+          />
         </div>
         <div className="flex w-full flex-col gap-4">
           <div className="flex w-full flex-col">
