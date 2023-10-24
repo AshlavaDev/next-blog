@@ -21,9 +21,8 @@ export default async function About() {
 
   return (
     <main className="flex min-h-screen w-full flex-col items-center p-4">
-      <h1 className="text-center text-5xl font-bold">Most Recent Posts</h1>
+      <h1 className="text-center text-5xl font-bold font-heading">Most Recent Posts</h1>
       <section className="w-full pt-8">
-        <h2 className="text-center text-2xl">Recent Posts</h2>
 
         <div className="flex w-full flex-col items-center gap-4 py-8">
           {blogs.map((blog, index) => (
