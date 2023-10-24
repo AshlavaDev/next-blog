@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Sans_Mono, Libre_Franklin } from "next/font/google"
+import { Noto_Sans_Mono, Libre_Franklin } from "next/font/google";
 
 import Navbar from "@/components/navigation/Navbar";
 import "./globals.css";
@@ -16,13 +16,13 @@ const notoSansMono = Noto_Sans_Mono({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-noto-sans-mono",
-})
+});
 
 const libreFranklin = Libre_Franklin({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-libre-franklin",
-})
+});
 
 export default async function RootLayout({
   children,
@@ -32,8 +32,11 @@ export default async function RootLayout({
   const currentUser = await getCurrentUser();
 
   return (
-    <html lang="en" className={`${notoSansMono.variable} ${libreFranklin.variable}`}>
-      <body className="min-h-screen font-main bg-gray-200 dark:bg-gray-950 text-gray-900 dark:text-gray-200">
+    <html
+      lang="en"
+      className={`${notoSansMono.variable} ${libreFranklin.variable}`}
+    >
+      <body className="min-h-screen bg-gray-200 font-main text-gray-900 dark:bg-gray-950 dark:text-gray-200">
         <ToastProvider />
         <Navbar currentUser={currentUser} />
         {children}

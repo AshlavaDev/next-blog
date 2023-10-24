@@ -69,9 +69,9 @@ export default function UpdateBlogModal({ onClose, blogData }: IProps) {
     >
       <form
         onSubmit={handleSubmit}
-        className="flex w-full flex-col rounded-lg bg-gray-200 dark:bg-gray-950 p-6 shadow-lg md:w-1/2"
+        className="flex w-full flex-col rounded-lg bg-gray-200 p-6 shadow-lg dark:bg-gray-950 md:w-1/2"
       >
-        <h2 className="mb-4 text-lg font-medium font-heading">Update Blog</h2>
+        <h2 className="mb-4 font-heading text-lg font-medium">Update Blog</h2>
         <div className="mb-4">
           <label className="mb-2 block font-medium">Title</label>
           <textarea
@@ -82,9 +82,7 @@ export default function UpdateBlogModal({ onClose, blogData }: IProps) {
           />
         </div>
         <div>
-          <label className="mb-2 block font-medium">
-            Description
-          </label>
+          <label className="mb-2 block font-medium">Description</label>
           <textarea
             className="w-full rounded-lg border border-gray-400 p-2 text-gray-800"
             id="description"
@@ -93,9 +91,7 @@ export default function UpdateBlogModal({ onClose, blogData }: IProps) {
           />
         </div>
         <div className="mb-4">
-          <label className="mb-2 block font-medium">
-            Content
-          </label>
+          <label className="mb-2 block font-medium">Content</label>
           <textarea
             className="w-full rounded-lg border border-gray-400 p-2 text-gray-800"
             id="content"

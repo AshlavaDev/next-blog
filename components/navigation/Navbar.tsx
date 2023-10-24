@@ -31,9 +31,9 @@ export default function Navbar({ currentUser }: NavProps) {
 
   return (
     <>
-      <nav className="flex w-full items-center justify-between border-b-2 border-gray-950 dark:border-gray-200 px-4 py-4 md:px-8">
+      <nav className="flex w-full items-center justify-between border-b-2 border-gray-950 px-4 py-4 dark:border-gray-200 md:px-8">
         {currentUser ? (
-          <span className="flex items-center gap-2 text-lg font-bold md:text-xl font-heading">
+          <span className="flex items-center gap-2 font-heading text-lg font-bold md:text-xl">
             <div className="h-12 w-12 rounded-full border border-gray-950 dark:border-gray-200">
               {currentUser.imageSrc && (
                 <Image
@@ -48,7 +48,9 @@ export default function Navbar({ currentUser }: NavProps) {
             {currentUser.name}
           </span>
         ) : (
-          <span className="text-lg font-bold md:text-xl font-heading">Next Blogging</span>
+          <span className="font-heading text-lg font-bold md:text-xl">
+            Next Blogging
+          </span>
         )}
         {currentUser ? (
           <ul className="hidden items-center space-x-4 md:flex">
@@ -64,7 +66,7 @@ export default function Navbar({ currentUser }: NavProps) {
             <li>
               <button
                 onClick={() => signOut({ callbackUrl: "/" })}
-                className="p-1 text-lg hover:bg-gray-950 dark:hover:bg-gray-200 hover:text-gray-200 dark:hover:text-gray-950"
+                className="p-1 text-lg hover:bg-gray-950 hover:text-gray-200 dark:hover:bg-gray-200 dark:hover:text-gray-950"
               >
                 Sign Out
               </button>
@@ -91,7 +93,7 @@ export default function Navbar({ currentUser }: NavProps) {
         <ul
           className={`${
             menuOpen
-              ? "absolute right-0 z-20 flex w-fit flex-col border-b-2 border-l-2 border-gray-950 dark:border-gray-200 bg-gray-200 dark:bg-gray-950 pr-2"
+              ? "absolute right-0 z-20 flex w-fit flex-col border-b-2 border-l-2 border-gray-950 bg-gray-200 pr-2 dark:border-gray-200 dark:bg-gray-950"
               : "hidden"
           }`}
         >

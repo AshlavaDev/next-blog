@@ -4,11 +4,11 @@
 
 @layer components {
   .btn-primary {
-    @apply border-2 border-gray-950 dark:border-gray-200 bg-gray-950 dark:bg-gray-200 p-2 text-gray-200 dark:text-gray-950 hover:bg-gray-200 dark:hover:bg-gray-950 hover:text-gray-950 dark:hover:text-gray-200;
+    @apply border-2 border-gray-950 bg-gray-950 p-2 text-gray-200 hover:bg-gray-200 hover:text-gray-950 dark:border-gray-200 dark:bg-gray-200 dark:text-gray-950 dark:hover:bg-gray-950 dark:hover:text-gray-200;
   }
 
   .btn-secondary {
-    @apply border-2 border-gray-950 dark:border-gray-200 bg-gray-200 dark:bg-gray-950 p-2 text-gray-950 dark:text-gray-200 hover:bg-gray-950 hover:text-gray-200 dark:hover:bg-gray-200 dark:hover:text-gray-950;
+    @apply border-2 border-gray-950 bg-gray-200 p-2 text-gray-950 hover:bg-gray-950 hover:text-gray-200 dark:border-gray-200 dark:bg-gray-950 dark:text-gray-200 dark:hover:bg-gray-200 dark:hover:text-gray-950;
   }
 
   .btn-danger {

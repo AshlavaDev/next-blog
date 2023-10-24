@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="flex w-full flex-col items-center border-t-2 border-gray-950 dark:border-gray-200 p-4 text-lg">
+    <footer className="flex w-full flex-col items-center border-t-2 border-gray-950 p-4 text-lg dark:border-gray-200">
       <p>The Next Blogging Site!</p>
       <p>
         &copy; 2023 Ashley Morgan -{" "}

@@ -8,8 +8,10 @@ export default function HomePage() {
       {/* Landing Section*/}
       <section className="flex w-full items-center justify-center bg-hero-image bg-cover bg-no-repeat px-2 py-12 md:py-28">
         {/* Hero Section*/}
-        <div className="flex flex-col items-center gap-10 bg-gray-200 dark:bg-gray-950 px-8 py-6">
-          <h1 className="text-4xl font-bold md:text-8xl font-heading">Next Blogging</h1>
+        <div className="flex flex-col items-center gap-10 bg-gray-200 px-8 py-6 dark:bg-gray-950">
+          <h1 className="font-heading text-4xl font-bold md:text-8xl">
+            Next Blogging
+          </h1>
           <p className="text-lg md:text-2xl">
             The Next and Last blogging site you will need!
           </p>
@@ -24,7 +26,7 @@ export default function HomePage() {
         </div>
       </section>
       <section className="flex flex-col items-center gap-4 pt-8">
-        <h2 className="text-2xl font-semibold md:text-4xl font-heading">
+        <h2 className="font-heading text-2xl font-semibold md:text-4xl">
           About Next Blogging
         </h2>
         <div className="flex flex-col gap-4 md:flex-row">

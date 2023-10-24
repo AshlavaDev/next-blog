@@ -52,7 +52,9 @@ export default function AuthorBlogCard({ data }: AuthorBlogCardProps) {
           />
         </div>
         <div className="flex grow flex-col md:col-span-2 md:max-w-prose">
-          <h1 className="text-2xl font-bold md:text-4xl font-heading">{data.title}</h1>
+          <h1 className="font-heading text-2xl font-bold md:text-4xl">
+            {data.title}
+          </h1>
           <p className="text-lg">
             {data.description.length > 80
               ? data.description.slice(0, 80) + "..."

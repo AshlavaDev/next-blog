@@ -85,9 +85,11 @@ export default function UpdateProfile({ onClose, user }: IProps) {
     >
       <form
         onSubmit={handleSubmit}
-        className="flex w-full flex-col rounded-lg bg-gray-200 dark:bg-gray-950 p-6 shadow-lg md:w-1/2"
+        className="flex w-full flex-col rounded-lg bg-gray-200 p-6 shadow-lg dark:bg-gray-950 md:w-1/2"
       >
-        <h2 className="mb-4 text-lg font-medium font-heading">Update Profile</h2>
+        <h2 className="mb-4 font-heading text-lg font-medium">
+          Update Profile
+        </h2>
         <div className="mb-4">
           <label className="mb-2 block font-medium">Name</label>
           <input

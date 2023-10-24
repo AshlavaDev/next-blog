@@ -75,7 +75,7 @@ export default function Login() {
 
   return (
     <main className="flex min-h-screen flex-col items-center pt-6 md:pt-20">
-      <h1 className="my-4 text-4xl font-bold font-heading">Login</h1>
+      <h1 className="my-4 font-heading text-4xl font-bold">Login</h1>
       <div className="flex flex-col items-center gap-2">
         <p className="text-center text-xl">Don&apos;t have an account?</p>
         <NavLink href="/register" text="Register" />
