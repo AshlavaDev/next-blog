@@ -14,7 +14,7 @@ It is fully mobile responsive in design and features both a light scheme and a d
 
 ### Limitations:
 
-There are 3 limitations, which are things I would like to add. The first is that the content section of a blog renders all as one block even though the textarea input allows for new lines. The second is that there is no search functionality which would be useful. The last is that there is no toggle between dark and light mode, rather it relies on the system or browser.
+There are 4 limitations, which are things I would like to add. There is limited security checks and no email validation. The first is that the content section of a blog renders all as one block even though the textarea input allows for new lines. The second is that there is no search functionality which would be useful. The last is that there is no toggle between dark and light mode, rather it relies on the system or browser.
 
 ## Links
 
