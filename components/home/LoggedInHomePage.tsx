@@ -21,7 +21,7 @@ export default function LoggedInHomePage({
   return (
     <main className="flex w-full flex-col pb-8">
       <section className="flex flex-col items-center py-12">
-        <h1 className="py-6 text-center text-4xl">
+        <h1 className="py-6 text-center text-4xl font-heading">
           Welcome, {currentUser?.name}
         </h1>
         <button
@@ -37,8 +37,8 @@ export default function LoggedInHomePage({
           </Link>
         </div>
       </section>
-      <section className="flex w-full flex-col items-center border-t-2 border-black pt-8">
-        <h2 className="text-2xl font-semibold">Your Posts</h2>
+      <section className="flex w-full flex-col items-center border-t-2 border-gray-950 dark:border-gray-200 pt-8">
+        <h2 className="text-2xl font-semibold font-heading">Your Posts</h2>
         <div className="flex w-full flex-col items-center gap-4 pt-8">
           {blogs.map((blog, index) => (
             <AuthorBlogCard key={index} data={blog} />

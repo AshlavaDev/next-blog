@@ -17,8 +17,6 @@ interface AuthorBlogCardProps {
   data: SafeBlog;
 }
 
-//TODO: Make uniform size
-
 export default function AuthorBlogCard({ data }: AuthorBlogCardProps) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
@@ -42,7 +40,7 @@ export default function AuthorBlogCard({ data }: AuthorBlogCardProps) {
     <div className="flex w-5/6 flex-col gap-2 md:w-1/3">
       <Link
         href={`/blogs/${data.id}`}
-        className="flex max-h-96 w-full flex-col items-center justify-center gap-2 border-2 px-2 py-4 hover:border-black md:grid md:max-h-64 md:grid-cols-3"
+        className="flex max-h-96 w-full flex-col items-center justify-center gap-2 border-2 px-2 py-4 hover:border-red-800 dark:hover:border-red-500 md:grid md:max-h-64 md:grid-cols-3"
       >
         <div className="aspect-h-1 flex w-1/2 items-center justify-center md:w-full">
           <Image
@@ -54,7 +52,7 @@ export default function AuthorBlogCard({ data }: AuthorBlogCardProps) {
           />
         </div>
         <div className="flex grow flex-col md:col-span-2 md:max-w-prose">
-          <h1 className="text-2xl font-bold md:text-4xl">{data.title}</h1>
+          <h1 className="text-2xl font-bold md:text-4xl font-heading">{data.title}</h1>
           <p className="text-lg">
             {data.description.length > 80
               ? data.description.slice(0, 80) + "..."

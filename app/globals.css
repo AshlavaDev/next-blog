@@ -4,22 +4,26 @@
 
 @layer components {
   .btn-primary {
-    @apply border-2 border-black bg-black p-2 text-white hover:bg-white hover:text-black;
+    @apply border-2 border-gray-950 dark:border-gray-200 bg-gray-950 dark:bg-gray-200 p-2 text-gray-200 dark:text-gray-950 hover:bg-gray-200 dark:hover:bg-gray-950 hover:text-gray-950 dark:hover:text-gray-200;
   }
 
   .btn-secondary {
-    @apply border-2 border-black bg-white p-2 text-black hover:bg-black hover:text-white;
+    @apply border-2 border-gray-950 dark:border-gray-200 bg-gray-200 dark:bg-gray-950 p-2 text-gray-950 dark:text-gray-200 hover:bg-gray-950 hover:text-gray-200 dark:hover:bg-gray-200 dark:hover:text-gray-950;
   }
 
   .btn-danger {
-    @apply border-2 border-red-800 bg-red-800 p-2 text-white hover:bg-white hover:text-red-800;
+    @apply border-2 border-red-800 bg-red-800 p-2 text-gray-200 hover:bg-gray-200 hover:text-red-800;
   }
 
   .input {
-    @apply w-full border-2 border-black bg-white p-2 py-2 font-light text-black outline-none invalid:border-rose-600 invalid:text-rose-600 focus:border-sky-600 focus:text-sky-600;
+    @apply w-full border-2 border-gray-950 bg-gray-200 p-2 py-2 font-light text-gray-800 outline-none invalid:border-rose-600 invalid:text-rose-600 focus:border-sky-600 focus:text-sky-600;
   }
 
   .nav-link {
-    @apply p-2 text-lg hover:bg-black hover:text-white;
+    @apply p-2 text-lg hover:bg-gray-950 hover:text-gray-200 dark:hover:bg-gray-200 dark:hover:text-gray-950;
+  }
+
+  .normal-link {
+    @apply text-lg underline hover:text-red-800 dark:hover:text-red-500;
   }
 }

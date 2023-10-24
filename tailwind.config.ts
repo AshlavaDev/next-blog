@@ -11,6 +11,10 @@ const config: Config = {
       backgroundImage: {
         "hero-image": "url('/images/hero-image.jpg')",
       },
+      fontFamily: {
+        heading: ["var(--font-noto-sans-mono)","Courier New", "Courier", "monospace"],
+        main: ["var(--font-libre-franklin)", "Tahoma", "Verdana", "sans-serif"],
+      }
     },
   },
   corePlugins: {

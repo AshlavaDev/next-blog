@@ -61,7 +61,7 @@ export default function BlogPage({
     } else if (blogAuthor.id === currentUser?.id) {
       section = (
         <div className="flex flex-col items-center gap-4">
-          <h2 className="text-center text-xl font-semibold md:text-2xl">
+          <h2 className="text-center text-xl font-semibold md:text-2xl font-heading">
             {blogAuthor?.name}
           </h2>
           <div className="flex gap-4">
@@ -97,7 +97,7 @@ export default function BlogPage({
         <Link
           href="/authors/[authorId]"
           as={`/authors/${blogAuthor?.id}`}
-          className="text-center text-xl font-semibold md:text-2xl"
+          className="text-center text-xl font-semibold md:text-2xl font-heading hover:text-red-800 dark:hover:text-red-500"
         >
           {blogAuthor?.name}
         </Link>
@@ -120,7 +120,7 @@ export default function BlogPage({
               width={200}
               height={200}
             />
-            <h1 className="text-center text-2xl font-bold md:text-4xl">
+            <h1 className="text-center text-2xl font-bold md:text-4xl font-heading">
               {blogData?.title}
             </h1>
             {authorSection}

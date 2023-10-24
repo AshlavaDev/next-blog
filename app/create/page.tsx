@@ -72,7 +72,7 @@ export default function Create() {
         className="flex w-full flex-col space-y-4 px-2 py-4 lg:w-1/2"
         onSubmit={onSubmit}
       >
-        <div className="flex h-32 w-32 flex-col self-center border border-black">
+        <div className="flex h-32 w-32 md:h-52 md:w-52 flex-col items-center justify-center self-center border border-gray-950 dark:border-gray-200">
           <ImageUpload
             value={state.imageSrc}
             onChange={(value) => setCustomValue("imageSrc", value)}

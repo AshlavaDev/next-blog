@@ -9,7 +9,7 @@ export default function Label({
   labelText,
   optionalClasses,
 }: LabelProps) {
-  const labelStyles = `font-semibold text-black md:text-lg ${optionalClasses}`;
+  const labelStyles = `font-semibold md:text-lg ${optionalClasses}`;
 
   return (
     <label htmlFor={inputName} className={labelStyles}>

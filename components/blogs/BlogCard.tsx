@@ -12,7 +12,7 @@ export default async function BlogCard({ data }: BlogCardProps) {
   const author = await findAuthor(data.userId);
 
   return (
-    <div className="flex w-5/6 flex-col items-center justify-between gap-2 border-2 border-black px-2 py-4 md:w-1/3">
+    <div className="flex w-5/6 flex-col items-center justify-between gap-2 border-2 border-gray-950 dark:border-gray-200 px-2 py-4 md:w-1/3">
       <div className="flex flex-col items-center gap-4 md:grid md:grid-cols-3">
         <div className="flex w-1/2 items-center justify-center md:w-full">
           {data.imageSrc === "" ? (
@@ -32,10 +32,10 @@ export default async function BlogCard({ data }: BlogCardProps) {
           )}
         </div>
         <div className="flex grow flex-col md:col-span-2 md:max-w-prose">
-          <h1 className="text-2xl font-bold">{data.title}</h1>
+          <h1 className="text-2xl font-bold font-heading">{data.title}</h1>
           <Link
             href={"authors/" + author?.id}
-            className="text-lg hover:text-red-800 md:text-xl"
+            className="text-lg hover:text-red-800 dark:hover:text-red-500 md:text-xl font-heading"
           >
             {author?.name ?? "Unknown Author"}
           </Link>

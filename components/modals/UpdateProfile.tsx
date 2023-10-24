@@ -80,18 +80,18 @@ export default function UpdateProfile({ onClose, user }: IProps) {
 
   return (
     <div
-      className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50 px-2"
+      className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-gray-500 bg-opacity-50 px-2"
       style={{ zIndex: 9999 }}
     >
       <form
         onSubmit={handleSubmit}
-        className="flex w-full flex-col rounded-lg bg-white p-6 shadow-lg md:w-1/2"
+        className="flex w-full flex-col rounded-lg bg-gray-200 dark:bg-gray-950 p-6 shadow-lg md:w-1/2"
       >
-        <h2 className="mb-4 text-lg font-medium">Update Profile</h2>
+        <h2 className="mb-4 text-lg font-medium font-heading">Update Profile</h2>
         <div className="mb-4">
-          <label className="mb-2 block font-medium text-gray-700">Name</label>
+          <label className="mb-2 block font-medium">Name</label>
           <input
-            className="w-full rounded-lg border border-gray-400 p-2"
+            className="w-full rounded-lg border border-gray-400 p-2 text-gray-800"
             type="text"
             id="name"
             value={state.name}
@@ -99,28 +99,28 @@ export default function UpdateProfile({ onClose, user }: IProps) {
           />
         </div>
         <div className="mb-4">
-          <label className="mb-2 block font-medium text-gray-700">
+          <label className="mb-2 block font-medium ">
             Tell Us About Yourself
           </label>
           <textarea
-            className="min-h-[240px] w-full rounded-lg border border-gray-400 p-2"
+            className="min-h-[240px] w-full rounded-lg border border-gray-400 p-2 text-gray-800"
             id="userDescription"
             value={state.userDescription}
             onChange={handleChange}
           />
         </div>
-        <div className="flex h-32 w-32 flex-col items-center justify-center self-center border border-black">
+        <div className="flex h-32 w-32 flex-col items-center justify-center self-center border border-gray-950 dark:border-gray-200">
           <ImageUpload
             value={state.imageSrc}
             onChange={(value) => setCustomValue("imageSrc", value)}
           />
         </div>
         <div className="mb-4">
-          <label className="mb-2 block font-medium text-gray-700">
+          <label className="mb-2 block font-medium">
             Your Profile Image Alt Text
           </label>
           <input
-            className="w-full rounded-lg border border-gray-400 p-2"
+            className="w-full rounded-lg border border-gray-400 p-2 text-gray-800"
             type="text"
             id="altText"
             value={state.altText}

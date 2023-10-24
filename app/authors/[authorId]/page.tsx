@@ -1,5 +1,5 @@
 /*
-  This page component si hown to everyone who isn't the author, where they can see the profile picture, description, and blogs of the author
+  This page component is shown to everyone who isn't the author, where they can see the profile picture, description, and blogs of the author
 */
 
 import findAuthor from "@/app/actions/findAuthor";
@@ -58,7 +58,7 @@ export default async function Author({ params }: { params: IParams }) {
 
   return (
     <main className="flex min-h-screen flex-col items-center pt-10">
-      <div className="h-24 w-24 rounded-full border-2 border-black md:h-48 md:w-48">
+      <div className="h-24 w-24 rounded-full border-2 border-gray-950 dark:border-gray-200 md:h-48 md:w-48">
         {authorData?.imageSrc && (
           <Image
             src={authorData.imageSrc}
