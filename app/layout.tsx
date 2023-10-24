@@ -9,7 +9,7 @@ import { ToastProvider } from "@/providers/toast-provider";
 
 export const metadata: Metadata = {
   title: "Next Blogging",
-  description: "A Next 13 test blog site",
+  description: "The Next and Last Blogging Site You Will Need!",
 };
 
 const notoSansMono = Noto_Sans_Mono({
