@@ -4,7 +4,7 @@ import LoggedInHomePage from "@/components/home/LoggedInHomePage";
 import HomePage from "@/components/home/HomePage";
 import { SafeBlog } from "@/types/type";
 
-//TODO: App list of todos: search functionality, code documentation, mobile style, update all style including dark mode
+//TODO: App list of todos: search functionality, code documentation
 
 export default async function Home() {
   const allBlogs = await getBlogs();
